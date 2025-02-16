@@ -1,0 +1,29 @@
+<p><b>contacts :</b></p>
+<div class="pill-group">
+    <ul class="contacts">
+        <li *ngFor="let contact of contacts">
+            <input type="text" id="prenom" class="name" [(ngModel)]="contact.prenom" placeholder="prenom">
+            <input type="text" id="nom" class="name" [(ngModel)]="contact.nom" placeholder="nom">
+            <input type="text" id="mail" class="name" [(ngModel)]="contact.mail" placeholder="mail">
+            <input type="text" id="telephone" class="name" [(ngModel)]="contact.telephone" placeholder="telephone">
+            <input type="text" id="statut" class="name" [(ngModel)]="contact.statut" placeholder="statut">
+            <button class="badge" (click)="onUpdateContact(contact)">U</button>
+            <button class="badge" (click)="onDeleteContact(contact)">X</button>
+        </li>
+    </ul>
+</div>
+<div class="pill-group">
+    <form class="contacts" (ngSubmit)="onNewContact(model); modelPrenom=''" #contactForm="ngForm">
+        <div class="form-group">
+            <input type="text" class="form-control" id="prenom" class="name" [(ngModel)]="model.prenom" placeholder="prenom" name="prenom">
+            <input type="text" class="form-control" id="nom" class="name" [(ngModel)]="model.nom" placeholder="nom" name="nom">
+            <input type="text" class="form-control" id="mail" class="name" [(ngModel)]="model.mail" placeholder="mail" name="mail">
+            <input type="text" class="form-control" id="telephone" class="name" [(ngModel)]="model.telephone" placeholder="telephone" name="telephone">
+            <input type="text" class="form-control" id="statut" class="name" [(ngModel)]="model.statut" placeholder="statut" name="statut">
+        </div>
+        <div>
+            <button type="submit" class="badge">Ajouter Contact</button>
+        </div>
+    </form>
+</div>
+<app-messages></app-messages>
